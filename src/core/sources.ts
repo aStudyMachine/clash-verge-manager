@@ -88,6 +88,9 @@ export function nodeId(sourceId: string, name: string): string {
   return createHash('sha256').update(`${sourceId}\0${name}`).digest('hex').slice(0, 32);
 }
 
+const profileTypes = ['local', 'remote', 'merge', 'script', 'rules', 'proxies', 'groups'];
+const bindingKinds = ['merge', 'script', 'rules', 'proxies', 'groups'];
+
 export async function readIndex(configDir: string): Promise<Record<string, any>> {
   const index = yamlObject(await readText(await inside(configDir, 'profiles.yaml')));
   if (!Array.isArray(index.items)) throw new Error('客户端订阅索引格式不支持');
@@ -99,7 +102,7 @@ export async function readIndex(configDir: string): Promise<Record<string, any>>
       typeof item.uid !== 'string' ||
       typeof item.file !== 'string' ||
       /[/\\]/.test(item.file) ||
-      !['local', 'remote', 'merge', 'script'].includes(item.type) ||
+      !profileTypes.includes(item.type) ||
       ids.has(item.uid) ||
       files.has(item.file.toLowerCase())
     ) {
@@ -111,7 +114,7 @@ export async function readIndex(configDir: string): Promise<Record<string, any>>
   }
   if (index.current && !ids.has(index.current)) throw new Error('客户端活动入口已缺失');
   for (const item of index.items)
-    for (const kind of ['merge', 'script']) {
+    for (const kind of bindingKinds) {
       const uid = item.option?.[kind];
       if (uid && !index.items.some((row: any) => row.uid === uid && row.type === kind))
         throw new Error('客户端扩展绑定无效');

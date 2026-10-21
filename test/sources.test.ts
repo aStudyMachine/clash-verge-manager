@@ -66,6 +66,106 @@ test('新增来源后，删除仍被方案使用的来源必须给出引用错�
   await assert.rejects(manager.execute({ type: 'source.remove', sourceId: source.id }), /引用/);
 });
 
+test('客户端带增强模板类型时可以完成连接', async () => {
+  const root = await fixture();
+  const configDir = path.join(root, 'verge');
+  await mkdir(path.join(configDir, 'profiles'), { recursive: true });
+  await writeFile(path.join(configDir, 'verge.yaml'), '{}');
+  await writeFile(
+    path.join(configDir, 'profiles.yaml'),
+    [
+      'current: local1',
+      'items:',
+      '  - uid: merge1',
+      '    type: merge',
+      '    name: null',
+      '    file: merge1.yaml',
+      '  - uid: script1',
+      '    type: script',
+      '    name: null',
+      '    file: script1.js',
+      '  - uid: rules1',
+      '    type: rules',
+      '    name: null',
+      '    file: rules1.yaml',
+      '  - uid: proxies1',
+      '    type: proxies',
+      '    name: null',
+      '    file: proxies1.yaml',
+      '  - uid: groups1',
+      '    type: groups',
+      '    name: null',
+      '    file: groups1.yaml',
+      '  - uid: local1',
+      '    type: local',
+      '    name: 订阅聚合',
+      '    file: local1.yaml',
+      '    option:',
+      '      merge: merge1',
+      '      script: script1',
+      '      rules: rules1',
+      '      proxies: proxies1',
+      '      groups: groups1',
+      '',
+    ].join('\n'),
+  );
+  for (const file of ['merge1.yaml', 'rules1.yaml', 'proxies1.yaml', 'groups1.yaml'])
+    await writeFile(
+      path.join(configDir, 'profiles', file),
+      'prepend: []\nappend: []\ndelete: []\n',
+    );
+  await writeFile(
+    path.join(configDir, 'profiles', 'script1.js'),
+    'function main(config) { return config; }\n',
+  );
+  await writeFile(path.join(configDir, 'profiles', 'local1.yaml'), 'mode: rule\n');
+  const manager = new Manager({ dataDir: path.join(root, 'data') });
+  await manager.execute({ type: 'device.connect', configDir });
+  const device = await manager.execute({ type: 'device.inspect' });
+  assert.equal(device.current, 'local1');
+  assert.equal(device.profiles.length, 6);
+});
+
+test('客户端扩展绑定指向错误类型时拒绝连接', async () => {
+  const root = await fixture();
+  const configDir = path.join(root, 'verge');
+  await mkdir(path.join(configDir, 'profiles'), { recursive: true });
+  await writeFile(path.join(configDir, 'verge.yaml'), '{}');
+  await writeFile(
+    path.join(configDir, 'profiles.yaml'),
+    [
+      'current: local1',
+      'items:',
+      '  - uid: script1',
+      '    type: script',
+      '    name: null',
+      '    file: script1.js',
+      '  - uid: rules1',
+      '    type: rules',
+      '    name: null',
+      '    file: rules1.yaml',
+      '  - uid: local1',
+      '    type: local',
+      '    name: 订阅聚合',
+      '    file: local1.yaml',
+      '    option:',
+      '      rules: script1',
+      '',
+    ].join('\n'),
+  );
+  await writeFile(
+    path.join(configDir, 'profiles', 'script1.js'),
+    'function main(config) { return config; }\n',
+  );
+  await writeFile(
+    path.join(configDir, 'profiles', 'rules1.yaml'),
+    'prepend: []\nappend: []\ndelete: []\n',
+  );
+  await writeFile(path.join(configDir, 'profiles', 'local1.yaml'), 'mode: rule\n');
+  const manager = new Manager({ dataDir: path.join(root, 'data') });
+  await assert.rejects(manager.execute({ type: 'device.connect', configDir }), /扩展绑定无效/);
+});
+
 test('协议或端口无效的刷新不会替换最后有效快照', async () => {
   const root = await fixture();
   const configDir = path.join(root, 'verge');
