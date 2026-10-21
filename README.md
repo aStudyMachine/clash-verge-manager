@@ -9,7 +9,7 @@ Windows x64 独立配置工作台。来源、固定节点、场景、策略和�
 
 ## 开发
 
-从本目录用 PowerShell 7 执行；开发需要 Node.js 24 或更新版本和 npm。正式软件随 Electron 交付运行环境，不使用 Python 后端。
+从仓库根目录用 PowerShell 7 执行；开发需要 Node.js 24 或更新版本和 npm。正式软件随 Electron 交付运行环境，不使用 Python 后端。
 
 ```powershell
 npm ci
@@ -38,7 +38,6 @@ node scripts/test-mihomo.mjs
 
 常规测试在仓库 `tmp/clash-manager-tests/` 创建脱敏设备和临时 Git 远端，不读取 `.env`，不修改活动客户端。可选隔离测试用本机辅助程序只读发现已安装的 Mihomo，启动本轮专属子进程和回环控制器，关闭 TUN、DNS 监听与代理端口，结束时只停止自己创建的子进程。它验证配置加载、规则出口与 provider 凭据刷新，不验证外部网站。
 
-接管兼容用例需要开发期 PyYAML，可显式设置 `CLASH_MANAGER_TEST_PYTHON` 为已验证的解释器路径；不设置时跳过该用例。此依赖仅用于调用仓库旧同步器，发行包不包含 Python。正式全量验收应同时设置该变量并执行隔离内核测试。
 
 离屏界面检查仅使用独立演示数据，输出必须为尚不存在的绝对路径：
 

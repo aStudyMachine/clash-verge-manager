@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, access, rename } from 'node:fs/promises';
+﻿import { readFile, writeFile, mkdir, access, rename } from 'node:fs/promises';
 import { createHash, randomUUID } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -20,7 +20,7 @@ try {
   console.log('已复用校验过的专用 Git');
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
-  const cache = fileURLToPath(new URL('../../../tmp/clash-manager-runtime/', import.meta.url));
+  const cache = fileURLToPath(new URL('../tmp/clash-manager-runtime/', import.meta.url));
   await mkdir(cache, { recursive: true });
   const archive = path.join(cache, `${lock.git.sha256}.zip`);
   let data;

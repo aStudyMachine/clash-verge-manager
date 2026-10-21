@@ -1,4 +1,4 @@
-import { build as bundle } from 'esbuild';
+﻿import { build as bundle } from 'esbuild';
 import { build as frontend } from 'vite';
 import react from '@vitejs/plugin-react';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
@@ -85,6 +85,6 @@ const png = Buffer.concat([
   chunk('IEND', Buffer.alloc(0)),
 ]);
 await writeFile(path.join(root, 'resources', 'bin', 'app-icon.png'), png);
-const guide = await readFile(path.resolve(root, '../../docs/subscription-manager.md'), 'utf8');
+const guide = await readFile(path.resolve(root, 'docs/subscription-manager.md'), 'utf8');
 await writeFile(path.join(root, 'resources', 'bin', '使用说明.md'), guide, 'utf8');
 console.log('桌面程序和本机资源构建完成');

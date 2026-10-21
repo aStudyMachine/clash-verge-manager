@@ -3,3 +3,6 @@ dist/
 release/
 resources/bin/
 *.tsbuildinfo
+tmp/
+.secret-patterns.txt
+
