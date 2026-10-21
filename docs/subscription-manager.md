@@ -1,6 +1,6 @@
 # 独立订阅管理器使用说明
 
-程序位于仓库根目录，便携 ZIP 的开发构建产物位于其 `release/`。解压后打开「Clash 订阅管理器.exe」，无需预装 Python、Node.js 或 Git。首次需要已有 Clash Verge Rev 2.5.8、可用的 Mihomo，以及本机订阅缓存。配置数据保存在 Windows 用户应用数据目录，与程序目录分离；升级时退出管理器后解压新版，继续使用原数据。
+程序位于仓库根目录，便携 ZIP 的开发构建产物位于其 `release/`。解压后打开「Clash 订阅管理器.exe」，无需预装 Python、Node.js 或 Git。当前写入兼容基线为 Clash Verge Rev 2.5.8 与 Mihomo Meta v1.19.32 Windows amd64。配置数据保存在 Windows 用户应用数据目录，与程序目录分离；升级时退出管理器后解压新版，继续使用原数据。包内 `resources/manager-resources/bin/使用说明.md` 可离线查看。
 
 ## 首次接入
 

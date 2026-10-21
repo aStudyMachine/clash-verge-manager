@@ -6,6 +6,7 @@ declare global {
       execute(command: Command): Promise<any>;
       choose(kind: 'config' | 'client' | 'core'): Promise<string | null>;
       ready(): void;
+      beforeQuit(save: () => Promise<void>): () => void;
     };
   }
 }

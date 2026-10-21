@@ -18,8 +18,22 @@ export async function atomicWrite(file: string, content: string | Uint8Array): P
 }
 
 export async function inside(root: string, relative: string): Promise<string> {
-  if (!relative || path.isAbsolute(relative) || relative.includes('\\') || relative.includes(':') ||
-      relative.split('/').some(part => !part || part === '.' || part === '..' || /[. ]$|[<>"|?*\x00-\x1f]/.test(part) || /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(?:\.|$)/i.test(part))) {
+  if (
+    !relative ||
+    path.isAbsolute(relative) ||
+    relative.includes('\\') ||
+    relative.includes(':') ||
+    relative
+      .split('/')
+      .some(
+        (part) =>
+          !part ||
+          part === '.' ||
+          part === '..' ||
+          /[. ]$|[<>"|?*\x00-\x1f]/.test(part) ||
+          /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(?:\.|$)/i.test(part),
+      )
+  ) {
     throw new Error('文件路径不在允许范围内');
   }
   const canonical = await realpath(root);
@@ -29,7 +43,8 @@ export async function inside(root: string, relative: string): Promise<string> {
     try {
       const resolved = await realpath(existing);
       const suffix = path.relative(canonical, resolved);
-      if (suffix.startsWith('..') || path.isAbsolute(suffix)) throw new Error('文件路径通过链接越出本机目录');
+      if (suffix.startsWith('..') || path.isAbsolute(suffix))
+        throw new Error('文件路径通过链接越出本机目录');
       break;
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
@@ -52,20 +67,36 @@ export class WorkspaceStore {
   async read(): Promise<Workspace> {
     try {
       const value = JSON.parse(await readFile(path.join(this.dataDir, 'workspace.json'), 'utf8'));
-      if (value.schemaVersion !== 1 || !Array.isArray(value.schemes) || !Array.isArray(value.sources) || !Array.isArray(value.nodes) || !Object.hasOwn(value, 'applied')) {
+      if (
+        value.schemaVersion !== 1 ||
+        !Array.isArray(value.schemes) ||
+        !Array.isArray(value.sources) ||
+        !Array.isArray(value.nodes) ||
+        !Object.hasOwn(value, 'applied')
+      ) {
         throw new Error('用户数据格式不兼容，未覆盖原文件');
       }
       value.schemes = value.schemes.map((scheme: unknown) => schemeSchema.parse(scheme));
       return { sources: [], nodes: [], device: null, ...value };
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-      const initial: Workspace = { schemaVersion: 1, schemes: [emptyScheme('default', 'default')], sources: [], nodes: [], device: null, applied: null };
+      const initial: Workspace = {
+        schemaVersion: 1,
+        schemes: [emptyScheme('default', 'default')],
+        sources: [],
+        nodes: [],
+        device: null,
+        applied: null,
+      };
       await this.write(initial);
       return initial;
     }
   }
 
   async write(workspace: Workspace): Promise<void> {
-    await atomicWrite(path.join(this.dataDir, 'workspace.json'), JSON.stringify(workspace, null, 2));
+    await atomicWrite(
+      path.join(this.dataDir, 'workspace.json'),
+      JSON.stringify(workspace, null, 2),
+    );
   }
 }

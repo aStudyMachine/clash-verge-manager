@@ -7,11 +7,17 @@ test('首次只有 default，保存的独立方案在重开后仍可读取', asy
   const dataDir = await fixture();
   const manager = new Manager({ dataDir });
   const initial = await manager.execute({ type: 'workspace.read' });
-  assert.deepEqual(initial.schemes.map((scheme: { name: string }) => scheme.name), ['default']);
+  assert.deepEqual(
+    initial.schemes.map((scheme: { name: string }) => scheme.name),
+    ['default'],
+  );
   const created = await manager.execute({ type: 'scheme.create', name: '办公' });
   const reopened = new Manager({ dataDir });
   const saved = await reopened.execute({ type: 'workspace.read' });
-  assert.deepEqual(saved.schemes.map((scheme: { name: string }) => scheme.name), ['default', '办公']);
+  assert.deepEqual(
+    saved.schemes.map((scheme: { name: string }) => scheme.name),
+    ['default', '办公'],
+  );
   assert.equal(saved.schemes[1].id, created.id);
   assert.equal(saved.applied, null);
 });
@@ -20,14 +26,35 @@ test('复制方案后独立编辑，替换被删除组的引用不影响原方�
   const manager = new Manager({ dataDir: await fixture() });
   const original = (await manager.execute({ type: 'workspace.read' })).schemes[0];
   original.groups = [
-    { id: 'exit', name: '出口', kind: 'strategy', strategy: 'select', members: [{ kind: 'builtin', id: 'DIRECT' }] },
-    { id: 'scene', name: '场景', kind: 'scene', strategy: 'select', members: [{ kind: 'group', id: 'exit' }] },
+    {
+      id: 'exit',
+      name: '出口',
+      kind: 'strategy',
+      strategy: 'select',
+      members: [{ kind: 'builtin', id: 'DIRECT' }],
+    },
+    {
+      id: 'scene',
+      name: '场景',
+      kind: 'scene',
+      strategy: 'select',
+      members: [{ kind: 'group', id: 'exit' }],
+    },
   ];
   await manager.execute({ type: 'scheme.save', scheme: original });
   const copied = await manager.execute({ type: 'scheme.clone', schemeId: 'default', name: '办公' });
-  await manager.execute({ type: 'scheme.removeObject', schemeId: copied.id, kind: 'group', id: 'exit', replacement: { kind: 'builtin', id: 'REJECT' } });
+  await manager.execute({
+    type: 'scheme.removeObject',
+    schemeId: copied.id,
+    kind: 'group',
+    id: 'exit',
+    replacement: { kind: 'builtin', id: 'REJECT' },
+  });
   const state = await manager.execute({ type: 'workspace.read' });
-  assert.equal(state.schemes.find((scheme: { id: string }) => scheme.id === 'default').groups.length, 2);
+  assert.equal(
+    state.schemes.find((scheme: { id: string }) => scheme.id === 'default').groups.length,
+    2,
+  );
   const updated = state.schemes.find((scheme: { id: string }) => scheme.id === copied.id);
   assert.equal(updated.groups.length, 1);
   assert.deepEqual(updated.groups[0].members, [{ kind: 'builtin', id: 'REJECT' }]);
@@ -38,8 +65,20 @@ test('用户保存循环组引用后，预览明确阻止应用', async () => {
   const workspace = await manager.execute({ type: 'workspace.read' });
   const scheme = workspace.schemes[0];
   scheme.groups = [
-    { id: 'a', name: '组甲', kind: 'strategy', strategy: 'select', members: [{ kind: 'group', id: 'b' }] },
-    { id: 'b', name: '组乙', kind: 'strategy', strategy: 'select', members: [{ kind: 'group', id: 'a' }] },
+    {
+      id: 'a',
+      name: '组甲',
+      kind: 'strategy',
+      strategy: 'select',
+      members: [{ kind: 'group', id: 'b' }],
+    },
+    {
+      id: 'b',
+      name: '组乙',
+      kind: 'strategy',
+      strategy: 'select',
+      members: [{ kind: 'group', id: 'a' }],
+    },
   ];
   await manager.execute({ type: 'scheme.save', scheme });
   const preview = await manager.execute({ type: 'scheme.preview', schemeId: scheme.id });

@@ -10,11 +10,20 @@ test('来源刷新只提示新节点，已明确选入的聚合成员不自动�
   const configDir = path.join(root, 'verge');
   await mkdir(path.join(configDir, 'profiles'), { recursive: true });
   await writeFile(path.join(configDir, 'verge.yaml'), '{}');
-  await writeFile(path.join(configDir, 'profiles.yaml'), 'current: remote1\nitems:\n  - uid: remote1\n    type: remote\n    name: 测试来源\n    file: remote1.yaml\n    url: https://example.invalid/subscription\n');
-  await writeFile(path.join(configDir, 'profiles', 'remote1.yaml'), 'proxies:\n  - name: 香港甲\n    type: ss\n    server: example.invalid\n    port: 443\n    cipher: aes-128-gcm\n    password: example-only\n');
+  await writeFile(
+    path.join(configDir, 'profiles.yaml'),
+    'current: remote1\nitems:\n  - uid: remote1\n    type: remote\n    name: 测试来源\n    file: remote1.yaml\n    url: https://example.invalid/subscription\n',
+  );
+  await writeFile(
+    path.join(configDir, 'profiles', 'remote1.yaml'),
+    'proxies:\n  - name: 香港甲\n    type: ss\n    server: example.invalid\n    port: 443\n    cipher: aes-128-gcm\n    password: example-only\n',
+  );
   const manager = new Manager({
     dataDir: path.join(root, 'data'),
-    download: async () => ({ text: 'proxies:\n  - name: 香港甲\n    type: ss\n    server: example.invalid\n    port: 443\n    password: example-only\n  - name: 香港乙\n    type: ss\n    server: example.invalid\n    port: 443\n    password: example-only\n', metadata: {} }),
+    download: async () => ({
+      text: 'proxies:\n  - name: 香港甲\n    type: ss\n    server: example.invalid\n    port: 443\n    cipher: aes-128-gcm\n    password: example-only\n  - name: 香港乙\n    type: ss\n    server: example.invalid\n    port: 443\n    cipher: aes-128-gcm\n    password: example-only\n',
+      metadata: {},
+    }),
   });
   await manager.execute({ type: 'device.connect', configDir });
   const source = await manager.execute({ type: 'source.adopt', uid: 'remote1' });
@@ -37,12 +46,60 @@ test('新增来源后，删除仍被方案使用的来源必须给出引用错�
   await mkdir(path.join(configDir, 'profiles'), { recursive: true });
   await writeFile(path.join(configDir, 'verge.yaml'), '{}');
   await writeFile(path.join(configDir, 'profiles.yaml'), 'items: []\n');
-  const manager = new Manager({ dataDir: path.join(root, 'data'), download: async () => ({ text: 'proxies:\n  - name: 节点甲\n    type: ss\n    server: example.invalid\n    password: example-only\n', metadata: {} }) });
+  const manager = new Manager({
+    dataDir: path.join(root, 'data'),
+    download: async () => ({
+      text: 'proxies:\n  - name: 节点甲\n    type: ss\n    server: example.invalid\n    port: 443\n    cipher: aes-128-gcm\n    password: example-only\n',
+      metadata: {},
+    }),
+  });
   await manager.execute({ type: 'device.connect', configDir });
-  const source = await manager.execute({ type: 'source.register', name: '新增来源', url: 'https://example.invalid/new' });
+  const source = await manager.execute({
+    type: 'source.register',
+    name: '新增来源',
+    url: 'https://example.invalid/new',
+  });
   const state = await manager.execute({ type: 'workspace.read' });
   state.schemes[0].sourceIds = [source.id];
   state.schemes[0].members = [state.nodes[0].id];
   await manager.execute({ type: 'scheme.save', scheme: state.schemes[0] });
   await assert.rejects(manager.execute({ type: 'source.remove', sourceId: source.id }), /引用/);
+});
+
+test('协议或端口无效的刷新不会替换最后有效快照', async () => {
+  const root = await fixture();
+  const configDir = path.join(root, 'verge');
+  await mkdir(path.join(configDir, 'profiles'), { recursive: true });
+  await writeFile(path.join(configDir, 'verge.yaml'), '{}');
+  await writeFile(path.join(configDir, 'profiles.yaml'), 'items: []\n');
+  let invalid = false;
+  const manager = new Manager({
+    dataDir: path.join(root, 'data'),
+    download: async () => ({
+      text: JSON.stringify({
+        proxies: [
+          {
+            name: '固定甲',
+            type: invalid ? 'unknown-protocol' : 'ss',
+            server: 'example.invalid',
+            port: invalid ? -1 : 443,
+            cipher: 'aes-128-gcm',
+            password: 'example-only',
+          },
+        ],
+      }),
+      metadata: {},
+    }),
+  });
+  await manager.execute({ type: 'device.connect', configDir });
+  const source = await manager.execute({
+    type: 'source.register',
+    name: '来源',
+    url: 'https://example.invalid/subscription',
+  });
+  invalid = true;
+  const refreshed = await manager.execute({ type: 'source.refresh', sourceId: source.id });
+  assert.equal(refreshed.stale, true);
+  assert.equal(refreshed.privateRevision, source.privateRevision);
+  assert.equal((await manager.execute({ type: 'workspace.read' })).nodes[0].missing, false);
 });

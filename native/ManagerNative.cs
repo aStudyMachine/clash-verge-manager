@@ -74,7 +74,7 @@ public static class ManagerNative {
       if (entries.Length != 1 || !Same(entries[0].Substring(entries[0].IndexOf('=') + 1).Trim().Trim('"', '\''), root)) throw new InvalidOperationException();
     } else {
       var match = Regex.Match(arguments, "(?:^|\\s)--config-dir\\s+\"([^\"]+)\"");
-      if (!arguments.Contains("--monitor") || !match.Success || !Same(match.Groups[1].Value, root) || Convert.ToString(task.Definition.RegistrationInfo.Description) != "仅评估已确认的稳定池" || !File.Exists(Convert.ToString(actions[1].Path))) throw new InvalidOperationException();
+      if (!arguments.Contains("--monitor") || !match.Success || !Same(match.Groups[1].Value, root) || Convert.ToString(task.Definition.RegistrationInfo.Description) != "仅评估已确认的稳定池" || !Path.IsPathRooted(Convert.ToString(actions[1].Path))) throw new InvalidOperationException();
     }
     return new Dictionary<string, object> { {"exists", true}, {"running", (int)task.State == 4}, {"enabled", (bool)task.Enabled}, {"name", name}, {"xml", Convert.ToString(task.Xml)}, {"legacy", legacy} };
   }
@@ -132,9 +132,15 @@ public static class ManagerNative {
       dynamic task = FindTask(folder, name);
       if (Flag(state, "legacy")) {
         dynamic current = FindTask(folder, TaskName(root));
-        if (current != null) { if ((int)current.State == 4) throw new InvalidOperationException(); current.Enabled = false; }
+        if (current != null) {
+          if ((int)current.State == 4 || Flag(Monitor(input), "legacy")) throw new InvalidOperationException();
+          folder.DeleteTask(TaskName(root), 0);
+        }
       }
-      if (task == null && !String.IsNullOrEmpty(Text(state, "xml"))) task = folder.RegisterTask(name, Text(state, "xml"), 6, null, null, 3, null);
+      if (!String.IsNullOrEmpty(Text(state, "xml"))) {
+        if (task != null && (int)task.State == 4) throw new InvalidOperationException();
+        task = folder.RegisterTask(name, Text(state, "xml"), 6, null, null, 3, null);
+      }
       if (task == null) throw new InvalidOperationException();
       string stop = Path.Combine(root, Flag(state, "legacy") ? "stability-monitor\\stop" : "config-manager\\monitor\\stop");
       if (File.Exists(stop)) File.Delete(stop);
@@ -206,6 +212,14 @@ public static class ManagerNative {
         Emit(new { supported, version, running = valid && Running(app) }); return 0;
       }
       if (action == "monitor-status") { Emit(Monitor(input)); return 0; }
+      if (action == "monitor-remove") {
+        var state = Monitor(input);
+        if (Flag(state, "exists")) {
+          if (Flag(state, "legacy") || Flag(state, "running")) throw new InvalidOperationException();
+          Scheduler().GetFolder("\\").DeleteTask(TaskName(root), 0);
+        }
+        Emit(new { removed = true }); return 0;
+      }
       if (action == "monitor-pause") { Pause(input); return 0; }
       if (action == "monitor-resume") { Resume(input); return 0; }
       throw new InvalidOperationException();
