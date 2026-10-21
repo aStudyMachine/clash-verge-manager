@@ -1,0 +1,1916 @@
+[
+  {
+    "id": "ai",
+    "name": "AI",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "openai.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "chatgpt.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "oaistatic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "oaiusercontent.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "anthropic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "claude.ai",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "deepmind.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "x.ai",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "grok.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "midjourney.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "gemini.google.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "proactivebackend-pa.googleapis.com",
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "social",
+    "name": "社交",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "twitter.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "x.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "twimg.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "t.co",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "facebook.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "facebook.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "fbcdn.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "fbsbx.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "instagram.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "cdninstagram.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "whatsapp.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "whatsapp.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "threads.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "threads.com",
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "tiktok",
+    "name": "TikTok",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.ss.android.ugc.trill",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "byteoversea.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ibytedtos.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "muscdn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "musical.ly",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tiktok.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tik-tokapi.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tiktokcdn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tiktokv.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "tiktokcdn-",
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "google",
+    "name": "Google",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "google.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gstatic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "googleapis.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "googleusercontent.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gmail.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "1e100.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "2mdn.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "app-measurement.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "g.co",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ggpht.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "goo.gl",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "googleapis.cn",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gstatic.cn",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gvt0.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gvt1.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gvt2.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gvt3.com",
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "steam",
+    "name": "Steam",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "steam-chat.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "steamcontent.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "steamgames.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "steampowered.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "steamstat.us",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "steamstatic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "steamusercontent.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "steambroadcast.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "steamcdn-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "steamcommunity-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "steamstore-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "steamusercontent-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "steamuserimages-a.akamaihd.net",
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "anime",
+    "name": "港台番剧",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "DOMAIN",
+        "value": "api.biliapi.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "api.biliapi.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "api.bilibili.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "app.biliapi.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "app.biliapi.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "app.bilibili.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "grpc.biliapi.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "m.bilibili.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "upos-hz-mirrorakam.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "www.bilibili.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "cn-hk-eq-bcache-",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "cache.video.iqiyi.com",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "116.211.202.206/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "116.211.202.216/32",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "api.mgtv.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "mobileso.bz.mgtv.com",
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "media",
+    "name": "国际媒体",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "PROCESS-NAME",
+        "value": "tv.twitch.android.app",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ext-twitch.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "jtvnw.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ttvnw.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "twitch.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "twitchcdn.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "twitch-ext.rootonline.de",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "deezer.android.app",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "deezer.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dzcdn.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.tencent.ibg.joox",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.tencent.ibg.jooxtv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "joox.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "jooxweb-api",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.skysoft.kkbox.android",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "kkbox.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "kkbox.com.tw",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "kfs.io",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.pandora.android",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "pandora.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.soundcloud.android",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "p-cdn.us",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "sndcdn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "soundcloud.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.spotify.music",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "pscdn.co",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "scdn.co",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "spotify.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "spoti.fi",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "spotify.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "-spotify-com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.aspiro.tidal",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tidal.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.google.android.apps.youtube.music",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.google.android.youtube.tvmusic",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.ximalaya.ting.himalaya",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "himalaya.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "tv.abema",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "abema.io",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "abema.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "abema-tv.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ameba.jp",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hayabusa.io",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hayabusa.media",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "api-abematv.bucketeer.jp",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "abematv.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.channel4.ondemand",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "c4assets.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "channel4.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.amazon.avod.thirdp",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "aiv-cdn.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "aiv-delivery.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "amazonvideo.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "media-amazon.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "primevideo.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "pv-cdn.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "atv-ps.amazon.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "fls-na.amazon.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "avodmp4s3ww-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d25xi40x97liuc.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "dmqdd6hw24ucf.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d22qjgkvxw22r6.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d1v5ir2lpwr8os.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d27xxe7juh1us6.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "avoddashs",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "tv.applemusic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "linear.tv.apple.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "play-edge.itunes.apple.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "uts-api.itunes.apple.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "tw.com.gamer.android.animad",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "bahamut.com.tw",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "gamer.com.tw",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "bahamut.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "gamer-cds.cdn.hinet.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "gamer2-cds.cdn.hinet.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "bbc.iplayer.android",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "bbc.co.uk",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "bbci.co.uk",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "bbcfmt",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "uk-live",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.bstar.intl",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "biliintl.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "apm-misaka.biliapi.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "p.bstarstatic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "p-bstarstatic.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "upos-bstar-mirrorakam.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "upos-bstar1-mirrorakam.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.dazn",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dazn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dazn-api.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dazndn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "indazn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d151l6v8er5bdm.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "voddazn",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.discovery.discoveryplus.mobile",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "disco-api.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "discoveryplus.co.uk",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "discoveryplus.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "discoveryplus.in",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dnitv.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "x-default-stgec.uplynk.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "discovery.uplynk.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.disney.disneyplus",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "bamgrid.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "disneyplus.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "disney-plus.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "disneystreaming.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dssott.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "cdn.registerdisney.go.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.dmm.app.movieplayer",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dmm.co.jp",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dmm.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dmm-extension.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.tvbusa.encore",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "encoretvb.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "edge.api.brightcove.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "bcbolt446c5271-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.cht.ottPlayer",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ott.hinet.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hamivideo.hinet.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hls-hichannel.cdn.hinet.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "hamivideo.cdn.hinet.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.hbo.hbonow",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hbo.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hbogo.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hbonow.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hbomax.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hbomaxcdn.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "hk.hbo.hbogo",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hbogoasia.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hbogoasia.hk",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": ".hbogoasia.",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "44wilhpljf.execute-api.ap-southeast-1.amazonaws.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "bcbolthboa-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "cf-images.ap-southeast-1.prod.boltdns.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "dai3fd1oh325y.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hboasia1-i.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hboasia2-i.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hboasia3-i.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hboasia4-i.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hboasia5-i.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hboasialive.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hbogoprod-vod.akamaized.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hbolb.onwardsmg.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hbounify-prod.evergent.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "players.brightcove.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "s3-ap-southeast-1.amazonaws.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "5itv.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ocnttv.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.hulu.plus",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hulu.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "huluim.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hulustream.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "jp.happyon.android",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "happyon.jp",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hjholdings.jp",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "hulu.jp",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "air.ITVMobilePlayer",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "itv.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "itvstatic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "itvpnpmobile-a.akamaihd.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "iq.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "intl.iqiyi.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "intl-rcd.iqiyi.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "intl-subscription.iqiyi.com",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "23.53.32.88/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "23.211.15.99/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "103.5.34.153/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "104.109.129.153/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "110.238.107.47/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "118.26.32.178/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "203.74.95.131/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "203.74.95.139/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "203.74.95.153/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "203.211.4.169/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "203.211.4.193/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "210.71.227.200/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "210.71.227.202/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "210.201.32.8/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "210.201.32.11/32",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.kktv.kktv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "kktv.com.tw",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "kktv.me",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "kktv-theater.kk.stream",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.linecorp.linetv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "linetv.tw",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d3c7rimkq79yfu.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.litv.mobile.gp.litv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "litv.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "litvfreemobile-hichannel.cdn.hinet.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.mobileiq.demand5",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "channel5.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "my5.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d349g9zuie06uo.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.tvb.mytvsuper",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "mytvsuper.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tvb.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.nhn.android.naverplayer",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "naver.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "smartmediarep.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.netflix.mediaclient",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "netflix.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "netflix.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nflxext.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nflximg.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nflximg.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nflxso.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nflxvideo.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "netflixdnstest",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "apiproxy-device-prod-nlb-",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-KEYWORD",
+        "value": "dualstack.apiproxy-",
+        "options": []
+      },
+      {
+        "kind": "GEOIP",
+        "value": "NETFLIX",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "jp.nicovideo.android",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "dmc.nico",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nicovideo.jp",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nimg.jp",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.pccw.nowemobile",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nowe.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "nowestatic.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.cbs.app",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "cbsi.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "cbsaavideo.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "cbsivideo.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "paramountplus.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "pplusstatic.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "cbsi.live.ott.irdeto.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "cbsplaylistserver.aws.syncbak.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "cbsservice.aws.syncbak.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "link.theplatform.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.pbs.video",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "pbs.org",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.peacocktv.peacockandroid",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "peacocktv.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "phncdn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "phprcdn.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "pornhub.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "pornhubpremium.com",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.twgood.android",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "skyking.com.tw",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "hamifans.emome.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "jp.hamitv.hamiand1",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tver.jp",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.hktve.viutv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "viu.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "viu.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "api.viu.now.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d1k2us671qcoau.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "d2anahhhmp1ffz.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "dfp6rglgjqszk.cloudfront.net",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.tencent.qqlivei18n",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "wetv.vip",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "wetvinfo.com",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "150.109.28.51/32",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.google.android.youtube",
+        "options": []
+      },
+      {
+        "kind": "PROCESS-NAME",
+        "value": "com.google.android.youtube.tv",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "googlevideo.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "withyoutube.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "youtu.be",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "youtube.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "youtubeeducation.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "youtubegaming.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "youtubekids.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "youtube-nocookie.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "yt.be",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "ytimg.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "youtubei.googleapis.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN",
+        "value": "yt3.ggpht.com",
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "telegram",
+    "name": "Telegram",
+    "version": "2026.10.21.1",
+    "source": "内置场景规则模板，按场景逐项维护",
+    "rules": [
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "t.me",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "tdesktop.com",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "telegra.ph",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "telegram.me",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "telegram.org",
+        "options": []
+      },
+      {
+        "kind": "DOMAIN-SUFFIX",
+        "value": "telesco.pe",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.108.4.0/22",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.108.8.0/22",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.108.12.0/22",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.108.16.0/22",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.108.20.0/22",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.108.56.0/22",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.105.192.0/23",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "149.154.160.0/20",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "185.76.151.0/24",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR6",
+        "value": "2001:b28:f23d::/48",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR6",
+        "value": "2001:b28:f23f::/48",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR6",
+        "value": "2001:67c:4e8::/48",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR6",
+        "value": "2001:b28:f23c::/48",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR6",
+        "value": "2a0a:f280::/32",
+        "options": []
+      },
+      {
+        "kind": "IP-CIDR",
+        "value": "91.108.8.0/21",
+        "options": []
+      }
+    ]
+  }
+]
