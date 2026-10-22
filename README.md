@@ -45,6 +45,8 @@ node scripts/test-mihomo.mjs
 npm start -- --demo --data-dir '独立演示目录' --render-preview '新预览图片绝对路径'
 ```
 
+可用 `--preview-theme light|dark`、`--preview-font 13|14|16|18` 和 `--preview-panel appearance` 固定离屏预览的主题、字号及外观设置对话框；这些参数只用于演示数据检查。
+
 ## 边界
 
 - 写入兼容基线为 Clash Verge Rev 2.5.8 与 Mihomo Meta v1.19.32 Windows amd64。其他版本可以读取，应用前会拒绝未通过兼容校验的版本。

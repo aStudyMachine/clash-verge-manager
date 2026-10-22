@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, ipcMain, Menu, nativeImage, Tray } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain, Menu, nativeImage, nativeTheme, Tray } from 'electron';
 import { writeFile, mkdir, open } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,6 +14,19 @@ const argument = (name: string) => {
 };
 const monitorMode = process.argv.includes('--monitor');
 const previewPath = argument('--render-preview');
+const previewThemeArg = argument('--preview-theme');
+const previewTheme =
+  previewPath && (previewThemeArg === 'light' || previewThemeArg === 'dark')
+    ? previewThemeArg
+    : undefined;
+const previewFontArg = argument('--preview-font');
+const previewFont =
+  previewPath && ['13', '14', '16', '18'].includes(previewFontArg ?? '')
+    ? previewFontArg
+    : undefined;
+const previewPanelArg = argument('--preview-panel');
+const previewPanel =
+  previewPath && previewPanelArg === 'appearance' ? previewPanelArg : undefined;
 const demo = process.argv.includes('--demo');
 const resourcesDir = app.isPackaged
   ? path.join(process.resourcesPath, 'manager-resources')
@@ -147,14 +160,17 @@ async function main() {
     gitPath: path.join(resourcesDir, 'bin', 'mingit', 'cmd', 'git.exe'),
   });
   const entry = path.join(desktopDir, '../renderer/index.html');
+  const darkWindow =
+    previewTheme === 'dark' ||
+    (previewTheme !== 'light' && nativeTheme.shouldUseDarkColors);
   window = new BrowserWindow({
     title: 'Clash 订阅管理器',
     width: 1540,
     height: 1000,
-    minWidth: 1180,
+    minWidth: 1280,
     minHeight: 720,
     show: !previewPath,
-    backgroundColor: '#f6f7f3',
+    backgroundColor: darkWindow ? '#0d1117' : '#f6f8fa',
     icon: path.join(resourcesDir, 'bin', 'app-icon.png'),
     autoHideMenuBar: true,
     webPreferences: {
@@ -299,7 +315,18 @@ async function main() {
         });
     });
   }
-  await window.loadFile(entry);
+  await window.loadFile(
+    entry,
+    previewPath
+      ? {
+          query: {
+            'preview-theme': previewTheme ?? (darkWindow ? 'dark' : 'light'),
+            'preview-font': previewFont ?? '14',
+            ...(previewPanel ? { 'preview-panel': previewPanel } : {}),
+          },
+        }
+      : undefined,
+  );
   if (previewPath)
     setTimeout(() => {
       if (!ready) {

@@ -3,6 +3,7 @@ import type { Command, Group, Reference, Rule, Scheme, Source, Workspace } from 
 import { groupSchema } from '../core/model.js';
 import { Dialog } from './Dialog.js';
 import { MonitorPanel } from './MonitorPanel.js';
+import { AppearancePanel } from './AppearancePanel.js';
 
 const api = (command: Command) => window.manager.execute(command);
 const refValue = (reference: Reference) => JSON.stringify(reference);
@@ -124,8 +125,13 @@ export function App() {
   }
 
   useEffect(() => {
+    const previewPanel = new URLSearchParams(window.location.search).get('preview-panel');
     reload()
-      .then(() => window.manager.ready())
+      .then(() => {
+        if (previewPanel === 'appearance')
+          setModal({ title: '外观设置', body: <AppearancePanel /> });
+        return window.manager.ready();
+      })
       .catch((error) => setToast(error.message));
   }, []);
   useEffect(() => {
@@ -1016,6 +1022,12 @@ export function App() {
               : '方案保存后，明确应用才生效'}
           </p>
         </div>
+        <button
+          className="rail-bottom"
+          onClick={() => setModal({ title: '外观设置', body: <AppearancePanel /> })}
+        >
+          ◐ 外观设置
+        </button>
         <button className="rail-bottom" onClick={connect}>
           ⚙ 连接与本机设置
         </button>
