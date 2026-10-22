@@ -54,6 +54,10 @@ git diff --check
 
 ## 提交与发布
 
-- 提交标题使用简短、动词开头的中文描述，每次聚焦一个变更。
-- 用户说「提交代码」即授权本地 commit，说「提交代码并推送」即授权 commit 和 push；未明确要求推送时不 push。
+Git 操作按「开工 → 提交 → 合并 → 收尾」四阶段执行。
+
+- 开工：从最新 `main` 建 `<type>/<YYMMDD>-<HHMM>-<描述>` 工作分支，type 取 `feature|fix|docs|chore|refactor|perf|test|merge`，描述不超过 12 个汉字；不在 `main` 直接提交。
+- 提交：标题使用 `<type>(<scope>): <用户可感知的结果>`，type 仅限 `feat|fix|perf|refactor|test|docs|build|chore`；一个提交只服务一个可独立回滚的变更；标题建议不超过 40 字、硬上限 65 字，不加句号；未真机验收的检查点以 `[checkpoint，未验收]` 结尾且不带版本号。正文写「变更 / 验证 / 验收 / 文档」，有遗留时补「风险/遗留」，建议不超过 600 字、硬上限 900 字。提交前必须通过提交信息校验，不得用 `--no-verify` 绕过。
+- 合并：使用 `git merge --no-ff`，并显式写明合并提交信息；收尾只列出可删分支，不自动删除；仅真机验收通过的发布提交打 annotated tag。
+- 授权：用户说「提交代码」即授权本地 commit，说「提交代码并推送」即授权 commit 和 push；执行前说明拟用 message 与推送目标；未明确要求推送时不 push。
 - 正式发行包不依赖 Python 与源码仓库；发行前核对 `resources/THIRD_PARTY_NOTICES.md` 的数据来源与许可范围。
