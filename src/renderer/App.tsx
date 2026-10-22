@@ -971,7 +971,8 @@ export function App() {
               改名
             </button>
             <button
-              title="删除当前方案"
+              title={schemeId === 'default' ? '默认方案不可删除' : '删除当前方案'}
+              disabled={schemeId === 'default'}
               onClick={() =>
                 setModal({
                   title: '删除方案',
@@ -998,6 +999,7 @@ export function App() {
               删除
             </button>
           </div>
+          {schemeId === 'default' && <span className="rail-hint">默认方案不可删除</span>}
         </div>
         <nav>
           <button className={view === 'groups' ? 'active' : ''} onClick={() => setView('groups')}>

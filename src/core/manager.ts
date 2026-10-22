@@ -217,6 +217,7 @@ export class Manager {
       return copied;
     }
     if (command.type === 'scheme.remove') {
+      if (command.schemeId === 'default') throw new Error('默认方案不可删除');
       if (workspace.applied?.schemeId === command.schemeId)
         throw new Error('当前生效方案须先应用其他有效方案再删除');
       if (!workspace.schemes.some((row) => row.id === command.schemeId))

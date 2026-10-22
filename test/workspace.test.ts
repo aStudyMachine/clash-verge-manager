@@ -22,6 +22,26 @@ test('首次只有 default，保存的独立方案在重开后仍可读取', asy
   assert.equal(saved.applied, null);
 });
 
+test('默认方案不可删除，其他方案仍可删除', async () => {
+  const manager = new Manager({ dataDir: await fixture() });
+  const created = await manager.execute({ type: 'scheme.create', name: '临时方案' });
+  await assert.rejects(
+    manager.execute({ type: 'scheme.remove', schemeId: 'default' }),
+    /默认方案不可删除/,
+  );
+  const kept = await manager.execute({ type: 'workspace.read' });
+  assert.deepEqual(
+    kept.schemes.map((scheme: { id: string }) => scheme.id),
+    ['default', created.id],
+  );
+  await manager.execute({ type: 'scheme.remove', schemeId: created.id });
+  const after = await manager.execute({ type: 'workspace.read' });
+  assert.deepEqual(
+    after.schemes.map((scheme: { id: string }) => scheme.id),
+    ['default'],
+  );
+});
+
 test('复制方案后独立编辑，替换被删除组的引用不影响原方案', async () => {
   const manager = new Manager({ dataDir: await fixture() });
   const original = (await manager.execute({ type: 'workspace.read' })).schemes[0];

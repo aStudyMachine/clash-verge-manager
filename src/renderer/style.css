@@ -477,6 +477,14 @@ label.check {
   margin-top: 0.4rem;
 }
 
+.rail-hint {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--fg-subtle);
+  font-size: var(--text-2xs);
+  line-height: var(--leading-normal);
+}
+
 .rail-actions button {
   flex: 1 1 30%;
   min-height: 1.9rem;

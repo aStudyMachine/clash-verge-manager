@@ -69,19 +69,32 @@ test('删除发布保留历史，其他设备的旧草稿不能复活方案', as
   await first.execute({ type: 'git.configure', remote });
   await second.execute({ type: 'git.configure', remote });
   await first.execute({ type: 'scheme.publish', schemeId: 'default', summary: '初次发布' });
+  const disposable = await first.execute({ type: 'scheme.create', name: '临时方案' });
+  await first.execute({
+    type: 'scheme.publish',
+    schemeId: disposable.id,
+    summary: '发布临时方案',
+  });
   await second.execute({ type: 'git.fetch' });
-  await first.execute({ type: 'scheme.remove', schemeId: 'default' });
-  await first.execute({ type: 'git.publishChanges', summary: '删除默认方案' });
+  await first.execute({ type: 'scheme.remove', schemeId: disposable.id });
+  await first.execute({ type: 'git.publishChanges', summary: '删除临时方案' });
   await assert.rejects(
-    second.execute({ type: 'scheme.publish', schemeId: 'default', summary: '旧草稿' }),
+    second.execute({ type: 'scheme.publish', schemeId: disposable.id, summary: '旧草稿' }),
     /删除/,
   );
   await second.execute({ type: 'git.fetch' });
-  assert.equal((await second.execute({ type: 'workspace.read' })).schemes.length, 0);
-  assert.equal((await second.execute({ type: 'git.history', schemeId: 'default' })).length, 1);
+  const remaining = await second.execute({ type: 'workspace.read' });
+  assert.deepEqual(
+    remaining.schemes.map((scheme: { id: string }) => scheme.id),
+    ['default'],
+  );
+  assert.equal(
+    (await second.execute({ type: 'git.history', schemeId: disposable.id })).length,
+    1,
+  );
   assert.equal(
     (await second.execute({ type: 'recovery.list' })).some(
-      (row: any) => row.schemeId === 'default',
+      (row: any) => row.schemeId === disposable.id,
     ),
     true,
   );
